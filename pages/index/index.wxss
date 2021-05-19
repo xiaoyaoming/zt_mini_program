@@ -1,0 +1,102 @@
+/* pages/index/index.wxss */
+
+.banners {
+  width: 100%;
+  height: 300rpx;
+}
+
+.banners image {
+  width: 100%;
+  height: 100%;
+}
+
+.navContainer {
+  display: flex;
+}
+
+.navItem {
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rpx;
+}
+
+.navItem .iconfont {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100rpx;
+  background: rgb(240, 19, 19);
+  font-size: 50rpx;
+  color: #fff;
+  margin: 20rpx 0;
+}
+
+.navItem text {
+  font-size: 26rpx;
+}
+.recommendContainer {
+  padding: 20rpx;
+}
+
+/* 内容区样式 */
+.recommandScoll {
+  display: flex;
+  height: 200rpx;
+}
+.scollItem {
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 20rpx;
+}
+
+.scollItem image {
+  width: 200rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+}
+
+.scollItem text {
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.topList {
+  padding: 20rpx;
+}
+.topList .topListSwiper {
+  height: 400rpx;
+}
+.topList .swiperItem {
+  width: 96%;
+  background-color: #fbfbfb;
+}
+.topList .swiperItem .title {
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+.topList .musicItem {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.topList .musicItem image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.topList .musicItem .count {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.topList .musicItem .musicName {
+  height: 100rpx;
+  line-height: 100rpx;
+}
