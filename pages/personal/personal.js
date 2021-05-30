@@ -2,6 +2,7 @@
 let startY = 0;
 let moveY = 0;
 let moveDistance = 0;
+import request from '../../utils/request'
 Page({
 
   /**
@@ -9,14 +10,35 @@ Page({
    */
   data: {
     coverTransform: 'translateY(0)',
-    coveTransition: ''
+    coveTransition: '',
+    userInfo: '',
+    recentPlayList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let userInfo = wx.getStorageSync('userInfo');
+    if (userInfo) {
+      this.setData({
+        userInfo: JSON.parse(userInfo)
+      })
+      this.getUserRecentPlayList(this.data.userInfo.userId)
+    }
+  },
 
+
+  async getUserRecentPlayList(userId) {
+    let recentPlayListData = await request('/user/record', {uid: userId, type: 0})
+    let index = 0
+    let recentPlayList = recentPlayListData.allData.splice(0, 10).map(item => {
+      item.id = index++
+      return item
+    })
+    this.setData({
+      recentPlayList
+    })
   },
 
   handleTouchStart(event) {
@@ -44,6 +66,13 @@ Page({
       coveTransition: 'transform 1s linear'
     })
   },
+
+  toLogin() {
+    wx.navigateTo({
+      url: '/pages/login/login'
+    });
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

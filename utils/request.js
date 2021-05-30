@@ -4,7 +4,7 @@ import config from './config'
 export default (url, data = {}, method = 'GET') => {
     return new Promise((resolve, reject) => {
         var reqTask = wx.request({
-            url: config.mobileHost + url,
+            url: config.host + url,
             data,
             header: {'content-type':'application/json'},
             method,
